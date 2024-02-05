@@ -6,6 +6,7 @@ use bevy::{
     prelude::*,
     transform::systems::{propagate_transforms, sync_simple_transforms},
 };
+use bevy_rapier3d::prelude::*;
 use noisy_bevy::fbm_simplex_2d;
 
 #[cfg(feature = "commands")]
@@ -55,8 +56,7 @@ impl Plugin for TraumaPlugin {
             .add_systems(
                 PostUpdate,
                 shake
-                    .before(propagate_transforms)
-                    .before(sync_simple_transforms),
+                    .before(PhysicsSet::SyncBackend)
             );
 
         #[cfg(feature = "events")]
