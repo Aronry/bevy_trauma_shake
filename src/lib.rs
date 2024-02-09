@@ -114,6 +114,9 @@ impl Shake {
     pub fn add_trauma(&mut self, amount: f32) {
         self.trauma = (self.trauma + amount).clamp(0., 1.);
     }
+    pub fn get_traume(&mut self) -> f32 {
+        return self.trauma;
+    }
 }
 
 fn shake(mut shakes: Query<(&mut Shake, &mut Transform, Option<&ShakeSettings>)>, time: Res<Time>) {
