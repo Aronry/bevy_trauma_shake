@@ -59,7 +59,7 @@ impl Plugin for TraumaPlugin {
                     .before(PhysicsSet::SyncBackend)
             );
 
-        #[cfg(feature = "events")]
+        #[cfg(feature = "events")] 
         app.add_plugins(events::TraumaEventsPlugin);
     }
 }
